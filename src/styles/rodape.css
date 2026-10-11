@@ -1,0 +1,23 @@
+.rodape { background: var(--color-azul-profundo); color: var(--color-marfim); padding: 70px 0 110px; }
+.rodape-principal { display: grid; grid-template-columns: 1.2fr 1fr .8fr; gap: 80px; align-items: start; }
+.rodape .marca { width: 85px; }
+.rodape-assinatura { font-family: var(--font-display); font-size: 23px; max-width: 245px; line-height: 1.35; letter-spacing: -.02em; margin-top: 22px; }
+.rodape .eyebrow { color: #c5d1d6; font-size: 9px; display: block; margin-top: 13px; }
+.rodape-telefone { display: block; font-family: var(--font-display); font-size: 29px; margin-top: 20px; white-space: nowrap; }
+.rodape-instagram { display: inline-flex; gap: 9px; align-items: center; font-size: 10px; margin-top: 14px; }
+.rodape-instagram svg { width: 16px; height: 16px; }
+.rodape-principal > div:last-child { padding-top: 13px; color: #cbd5d9; font-size: 11px; line-height: 1.8; }
+.rodape-principal > div:last-child p { margin-bottom: 10px; }
+.rodape-base { border-top: 1px solid #c3d1d32e; padding-top: 24px; margin-top: 55px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.rodape-base small { font-size: 9px; color: #c7d0d4; }
+.controle-movimento { display: inline-flex; align-items: center; gap: 8px; font-size: 9px; min-height: 44px; padding: 10px 0; text-align: left; }
+@media (max-width: 1050px) { .rodape-principal { gap: 35px; } .rodape-telefone { font-size: 25px; } }
+@media (max-width: 767px) {
+  .rodape { padding-top: 52px; }
+  .rodape-principal { grid-template-columns: 1fr; gap: 30px; }
+  .rodape-principal > div:first-child { display: flex; align-items: center; gap: 22px; }
+  .rodape .marca { width: 72px; }
+  .rodape-assinatura { font-size: 23px; margin: 0; max-width: 260px; }
+  .rodape-telefone { font-size: 32px; }
+  .rodape-base { align-items: flex-start; flex-direction: column; gap: 8px; margin-top: 35px; }
+}

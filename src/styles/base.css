@@ -1,0 +1,61 @@
+* { box-sizing: border-box; }
+html { scroll-padding-top: 6rem; overflow-x: clip; }
+body { margin: 0; background: var(--color-papel); color: var(--color-texto); font-family: var(--font-sans); font-size: 16px; -webkit-font-smoothing: antialiased; }
+body, #root { min-width: 0; }
+::selection { background: var(--color-azul); color: var(--color-marfim); }
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:disabled { cursor: default; }
+button, iframe { border: 0; }
+button { background: transparent; }
+img { display: block; max-width: 100%; height: auto; }
+svg { flex-shrink: 0; }
+p, h1, h2, h3, h4, figure { margin: 0; }
+p { line-height: 1.75; }
+h1, h2, h3, h4 { font-weight: 500; }
+address { font-style: normal; }
+:focus-visible { outline: 3px solid #aa641e; outline-offset: 6px; border-radius: 2px; }
+.passos :focus-visible, .rodape :focus-visible { outline-color: #f1d6a6; }
+[hidden] { display: none !important; }
+.container { width: min(100% - 112px, 1328px); margin-inline: auto; }
+.espaco { padding-block: var(--spacing-secao); }
+.eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .16em; line-height: 1.7; text-transform: uppercase; }
+.titulo { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.5rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 400; }
+.linha-mascara { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
+.linha-mascara > span { display: block; }
+.titulo .linha-mascara:last-child { color: #4a626d; }
+.eyebrow + .titulo { margin-top: 1.4rem; }
+.botao { display: inline-flex; position: relative; align-items: center; justify-content: center; gap: 13px; min-height: 56px; max-width: 100%; padding: 17px 23px; background: var(--color-azul); color: #fff; border: 1px solid var(--color-azul); font-size: 12px; font-weight: 650; line-height: 1.5; border-radius: 4px; text-align: center; }
+.botao::after { content: ''; position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; transition: opacity .25s; }
+.botao:hover::after { opacity: .08; }
+.botao > svg:first-child { width: 19px; height: 19px; }
+.botao > svg:last-child { margin-left: 8px; }
+.botao-claro { background: var(--color-papel); color: var(--color-azul); border-color: var(--color-papel); }
+.botao-compacto { min-height: 46px; padding: 12px 18px; font-size: 11px; }
+.botao-compacto > svg { width: 16px; height: 16px; }
+.pular { position: fixed; top: 12px; left: 12px; padding: 14px 20px; z-index: 150; background: #fff; color: var(--color-azul); transform: translateY(-160%); }
+.pular:focus { transform: translateY(0); }
+.marca { width: 72px; flex-shrink: 0; border-radius: 50%; }
+.imagem-recorte { overflow: hidden; position: relative; isolation: isolate; }
+.imagem-recorte img { position: absolute; display: block; user-select: none; }
+.imagem picture, .imagem img { width: 100%; }
+.imagem img { object-fit: contain; }
+.cabecalho-secao { display: flex; align-items: flex-end; justify-content: space-between; gap: 3rem; margin-bottom: 3.5rem; }
+.cabecalho-nota { max-width: 310px; color: var(--color-secundario); font-size: 13px; line-height: 1.85; }
+.nota-pequena { font-size: 10px; color: var(--color-secundario); line-height: 1.75; }
+.link-seta { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 11px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+@media (min-width: 1800px) { .container { width: min(100% - 160px, 1480px); } }
+@media (max-width: 767px) {
+  .container { width: calc(100% - 40px); }
+  .titulo { font-size: clamp(2.45rem, 9vw, 3.6rem); }
+  .eyebrow { font-size: 9px; }
+  .cabecalho-secao { display: block; margin-bottom: 2.3rem; }
+  .cabecalho-nota { max-width: 380px; margin-top: 1.5rem; }
+  .botao { padding-inline: 18px; gap: 10px; }
+  .botao > svg:last-child { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+html[data-movimento='pausado'] *, html[data-movimento='pausado'] *::before, html[data-movimento='pausado'] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

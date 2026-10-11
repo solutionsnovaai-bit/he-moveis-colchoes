@@ -1,0 +1,14 @@
+@theme {
+  --color-azul: #102f46;
+  --color-azul-profundo: #092334;
+  --color-papel: #f3f0e9;
+  --color-marfim: #faf8f3;
+  --color-areia: #dfd3bd;
+  --color-madeira: #a27343;
+  --color-texto: #16364a;
+  --color-secundario: #52636b;
+  --color-linha: #d5d6ce;
+  --font-sans: Manrope, Arial, sans-serif;
+  --font-display: Newsreader, Georgia, serif;
+  --spacing-secao: clamp(4.5rem, 8vw, 8.5rem);
+}

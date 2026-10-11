@@ -1,0 +1,38 @@
+export const site = {
+  nome: 'H&E Móveis e Colchões',
+  nomeCurto: 'H&E',
+  categoria: 'Loja de móveis e colchões',
+  telefone: '5511949920897',
+  telefoneExibicao: '(11) 94992-0897',
+  instagram: 'https://www.instagram.com/h.emoveisecolchoes/',
+  instagramExibicao: '@h.emoveisecolchoes',
+  cidade: 'São Paulo',
+  estado: 'SP',
+  bairro: 'Bom Retiro',
+  pais: 'BR',
+  areaAtendida: 'São Paulo',
+  indexar: false,
+  url: '' as string,
+  seo: {
+    titulo: 'H&E Móveis e Colchões | Bom Retiro, São Paulo',
+    descricao: 'Móveis, colchões e eletrodomésticos no Bom Retiro. Pronta entrega e entregas em São Paulo. Consulte as opções da H&E pelo WhatsApp.',
+  },
+  lojas: [
+    { id: 'loja-1', nome: 'Loja 1', rua: 'Rua Newton Prado', numero: '160', confirmado: true },
+    { id: 'loja-2', nome: 'Loja 2', rua: 'Rua dos Bandeirantes', numero: '', confirmado: false },
+  ],
+  horarios: { domingo: 'Fechado aos domingos', demais: 'Consulte os horários pelo WhatsApp.' },
+  pendencias: {
+    enderecoLoja2: 'O Instagram informa Rua dos Bandeirantes, 453. O WhatsApp informa Rua Bandeirantes, 478. Confirmar antes de publicar o número e o CEP.',
+    horario: 'Somente o fechamento no domingo aparece nos prints.',
+  },
+  mensagens: {
+    geral: 'Olá, H&E! Vim pelo site e gostaria de conhecer as opções de móveis e colchões.',
+    catalogo: 'Olá, H&E! Gostaria de receber as opções disponíveis e os valores.',
+    entrega: 'Olá, H&E! Gostaria de consultar a entrega para o meu endereço em São Paulo.',
+    horario: 'Olá, H&E! Quais são os horários de atendimento das lojas?',
+    endereco: 'Olá, H&E! Poderiam confirmar o número e a localização da loja na Rua dos Bandeirantes?',
+    visita: 'Olá, H&E! Gostaria de combinar uma visita à loja. Podem confirmar o endereço e o horário?',
+    servico: (nome: string) => `Olá, H&E! Vim pelo site e tenho interesse em ${nome}. Quais opções estão disponíveis e quais são os valores?`,
+  },
+} as const;

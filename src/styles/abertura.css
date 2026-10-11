@@ -1,0 +1,12 @@
+.abertura { position: fixed; inset: 0; z-index: 100; background: var(--color-papel); color: var(--color-azul); display: grid; place-items: center; }
+.abertura-centro { text-align: center; }
+.abertura-montagem { display: flex; width: 210px; height: 210px; margin: 0 auto 30px; }
+.abertura-recorte { width: 33.333333%; height: 100%; overflow: hidden; position: relative; }
+.abertura-peca { width: 300%; height: 100%; position: absolute; top: 0; }
+.abertura-peca .marca { width: 100%; }
+.abertura-base { position: absolute; bottom: 38px; left: 5%; right: 5%; display: flex; justify-content: space-between; align-items: flex-end; }
+.abertura-base > span:first-child { font-size: 11px; }
+.abertura-numero { font-family: var(--font-display); font-size: 66px; line-height: 1; font-variant-numeric: tabular-nums; }
+.abertura-numero small { font-family: var(--font-sans); font-size: 14px; margin-left: 8px; }
+.abertura-progresso { position: absolute; height: 3px; bottom: 0; width: 100%; left: 0; background: var(--color-azul); transform-origin: left; }
+@media (prefers-reduced-motion: reduce) { .abertura { display: none; } }
