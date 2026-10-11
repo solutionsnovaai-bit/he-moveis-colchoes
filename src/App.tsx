@@ -20,20 +20,23 @@ import { Convite } from './components/secoes/Convite';
 
 export default function App() {
   const { desativado } = useMotionPreferences();
-  const [abrindo, setAbrindo] = useState(!desativado);
+  const [abrindo, setAbrindo] = useState(() => {
+    if (desativado) return false;
+    try { return sessionStorage.getItem('he-visitou') !== 'sim'; } catch { return true; }
+  });
   const [menu, setMenu] = useState(false);
   const concluir = useCallback(() => setAbrindo(false), []);
   const emAbertura = abrindo && !desativado;
   useSmoothScroll(emAbertura || menu);
   return <MotionConfig reducedMotion={desativado ? 'always' : 'never'}>
     <DadosEstruturados />
-    <a className="pular" href="#conteudo">{textos.pular}</a>
+    <a className="pular" href="#conteudo" inert={emAbertura || menu}>{textos.pular}</a>
     <div inert={emAbertura}><Topo aoAbrir={setMenu} /></div>
     <main id="conteudo" tabIndex={-1} inert={emAbertura || menu}>
       <Hero pronto={!emAbertura} /><Faixa /><Manifesto /><Servicos /><Galeria /><Sobre /><Passos /><OndeFica /><Convite />
     </main>
     <div inert={emAbertura || menu}><Rodape /></div>
     {emAbertura && <Abertura concluir={concluir} />}
-    <WhatsAppFab />
+    <div inert={emAbertura || menu} hidden={emAbertura || menu}><WhatsAppFab /></div>
   </MotionConfig>;
 }

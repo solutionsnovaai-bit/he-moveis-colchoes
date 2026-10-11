@@ -1,47 +1,54 @@
-.faixa { background: var(--color-azul); color: var(--color-papel); overflow: hidden; padding: 23px 0; }
+.faixa { background: var(--color-azul); color: var(--color-papel); overflow: hidden; padding: 24px 0; border-block: 1px solid #ffffff12; }
 .faixa-trilha, .faixa-grupo { display: flex; width: max-content; align-items: center; }
-.faixa-grupo span { display: flex; align-items: center; gap: 42px; padding-right: 42px; font-size: 10px; text-transform: uppercase; letter-spacing: .14em; font-weight: 600; white-space: nowrap; }
+.faixa-grupo span { display: flex; align-items: center; gap: 48px; padding-right: 48px; font-size: 10px; text-transform: uppercase; letter-spacing: .18em; font-weight: 600; white-space: nowrap; }
 .faixa-grupo i { color: #e0c59c; font-size: 19px; font-style: normal; }
 .faixa-parada .faixa-trilha, .faixa-parada .faixa-grupo { width: 100%; justify-content: center; flex-wrap: wrap; gap: 14px 25px; }
+.faixa-parada .faixa-grupo { padding-inline: 20px; }
 .faixa-parada .faixa-grupo span { padding: 0; }
 .faixa-parada i { display: none; }
-.manifesto-grade { display: grid; grid-template-columns: 1fr 2.35fr; gap: 64px; }
-.manifesto-grade > .eyebrow { max-width: 145px; padding-top: 10px; }
-.manifesto-frase { font-family: var(--font-display); font-size: clamp(1.9rem, 3.7vw, 3.55rem); letter-spacing: -.025em; line-height: 1.25; }
+.faixa-leitura { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.manifesto { position: relative; }
+.manifesto-grade { display: grid; grid-template-columns: 1fr 2.35fr; gap: clamp(40px, 5vw, 80px); align-items: start; }
+.manifesto-grade > .eyebrow { max-width: 180px; padding-top: 12px; }
+.manifesto-grade > .eyebrow::before { content: ''; display: block; width: 44px; height: 1px; background: var(--color-madeira); margin-bottom: 26px; }
+.manifesto-frase { font-family: var(--font-display); font-size: clamp(2rem, 3.7vw, 3.65rem); letter-spacing: -.03em; line-height: 1.22; text-wrap: pretty; }
 .manifesto-palavra { position: relative; display: inline-block; white-space: pre; color: #606b65; }
 .palavra-acesa { position: absolute; inset: 0 auto auto 0; color: var(--color-azul); }
-.manifesto-nota { font-size: 12px; margin-top: 30px; color: var(--color-secundario); }
-.sobre-grade { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 80px; }
+.manifesto-nota { font-size: 13px; margin-top: 32px; color: var(--color-secundario); padding-top: 24px; border-top: 1px solid var(--color-linha); }
+.sobre-grade { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(40px, 6vw, 88px); }
+.sobre .imagem { box-shadow: 0 24px 65px #09233412; }
 .sobre .imagem img { height: auto; object-fit: contain; }
-.sobre p:not(.eyebrow) { font-size: 14px; margin: 25px 0; max-width: 400px; }
-.passos { background: var(--color-azul); color: var(--color-marfim); }
+.sobre p:not(.eyebrow) { font-size: 15px; margin: 28px 0; max-width: 420px; }
+.passos { position: relative; isolation: isolate; background: var(--color-azul); color: var(--color-marfim); overflow: hidden; }
+.passos::before { content: ''; position: absolute; width: 55vw; height: 55vw; min-width: 400px; min-height: 400px; border: 1px solid #dfd3bd14; border-radius: 50%; right: -24vw; top: -32vw; z-index: -1; pointer-events: none; }
 .passos .titulo .linha-mascara:last-child { color: #c8d5da; }
 .passos > .container > .eyebrow { color: #cbd5d6; }
-.passos-grade { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; margin-top: 62px; gap: 80px; }
-.passos-fio { position: absolute; overflow: hidden; background: #ffffff30; }
+.passos-grade { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); position: relative; margin-top: 70px; gap: clamp(36px, 5vw, 80px); }
+.passos-fio { position: absolute; overflow: hidden; background: #ffffff26; }
 .passos-fio span { position: absolute; inset: 0; display: block; background: #dcc4a2; }
-.passos-fio-horizontal { left: 29px; right: 25%; top: 27px; height: 1px; }
+.passos-fio-horizontal { left: 30px; right: 25%; top: 29px; height: 1px; }
 .passos-fio-horizontal span { transform-origin: left; }
 .passos-fio-vertical { display: none; }
 .passo { position: relative; }
-.passo-bolha { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border: 1px solid #bfcdd178; border-radius: 50%; background: var(--color-azul); margin-bottom: 32px; }
-.passo-bolha svg { width: 21px; height: 21px; }
-.passo-numero { font-size: 9px; font-weight: 650; color: #dfc5a0; letter-spacing: .12em; }
-.passo h3 { margin: 15px 0 14px; font-family: var(--font-display); font-size: 29px; letter-spacing: -.02em; }
-.passo p { color: #d2dce0; font-size: 12px; max-width: 290px; line-height: 1.9; }
+.passo-bolha { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border: 1px solid #bfcdd178; border-radius: 50%; background: var(--color-azul); margin-bottom: 36px; box-shadow: 0 0 0 9px var(--color-azul); color: #e4d0af; }
+.passo-bolha svg { width: 22px; height: 22px; }
+.passo-numero { font-size: 10px; font-weight: 650; color: #dfc5a0; letter-spacing: .16em; }
+.passo h3 { margin: 16px 0; font-family: var(--font-display); font-size: clamp(28px, 2.4vw, 35px); letter-spacing: -.025em; line-height: 1.1; }
+.passo p { color: #d2dce0; font-size: 14px; max-width: 310px; line-height: 1.85; }
 @media (max-width: 767px) {
-  .faixa { padding-block: 18px; }
-  .faixa-grupo span { font-size: 8px; gap: 26px; padding-right: 26px; }
-  .manifesto-grade { grid-template-columns: 1fr; gap: 28px; }
+  .faixa { padding-block: 19px; }
+  .faixa-grupo span { font-size: 9px; gap: 28px; padding-right: 28px; }
+  .manifesto-grade { grid-template-columns: 1fr; gap: 30px; }
   .manifesto-grade > .eyebrow { max-width: none; padding: 0; }
-  .manifesto-frase { font-size: clamp(1.85rem, 7.5vw, 2.8rem); line-height: 1.3; }
-  .manifesto-nota { font-size: 11px; margin-top: 22px; }
-  .sobre-grade { grid-template-columns: 1fr; gap: 32px; }
-  .passos-grade { grid-template-columns: 1fr; gap: 40px; margin-top: 42px; }
-  .passo { padding-left: 76px; }
-  .passo-bolha { position: absolute; left: 0; top: 0; }
-  .passo h3 { font-size: 27px; margin-top: 10px; }
-  .passo p { max-width: 100%; font-size: 12px; }
+  .manifesto-grade > .eyebrow::before { display: inline-block; width: 28px; margin: 0 12px 3px 0; }
+  .manifesto-frase { font-size: clamp(1.9rem, 7.5vw, 2.8rem); line-height: 1.28; }
+  .manifesto-nota { font-size: 12px; margin-top: 25px; padding-top: 20px; }
+  .sobre-grade { grid-template-columns: 1fr; gap: 34px; }
+  .passos-grade { grid-template-columns: 1fr; gap: 38px; margin-top: 46px; }
+  .passo { padding: 4px 0 4px 80px; }
+  .passo-bolha { position: absolute; left: 0; top: 0; width: 54px; height: 54px; }
+  .passo h3 { font-size: 29px; margin: 12px 0; }
+  .passo p { max-width: 100%; font-size: 13px; }
   .passos-fio-horizontal { display: none; }
   .passos-fio-vertical { display: block; left: 27px; top: 25px; bottom: 85px; width: 1px; }
   .passos-fio-vertical span { transform-origin: top; }

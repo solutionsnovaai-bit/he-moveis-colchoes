@@ -12,15 +12,14 @@ export function Abertura({ concluir }: { concluir: () => void }) {
     if (desativado) { concluir(); return; }
     const overflowAnterior = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    let encerrado = false; let resolvidos = 0; let timer = 0;
-    let curta = false;
-    try { curta = sessionStorage.getItem('he-visitou') === 'sim'; } catch { /* Sessão sem armazenamento. */ }
+    let encerrado = false; let resolvidos = 0; let timer = 0; let finalizando = false;
     const inicio = performance.now();
     const terminou = () => {
-      if (encerrado) return;
+      if (encerrado || finalizando) return;
+      finalizando = true;
       clearTimeout(timer);
       try { sessionStorage.setItem('he-visitou', 'sim'); } catch { /* Sessão sem armazenamento. */ }
-      timer = window.setTimeout(() => setSaindo(true), Math.max(0, (curta ? 180 : 700) - (performance.now() - inicio)));
+      timer = window.setTimeout(() => setSaindo(true), Math.max(0, 450 - (performance.now() - inicio)));
     };
     const atualizar = () => { if (!encerrado) { resolvidos++; setProgresso(Math.round(resolvidos / 3 * 100)); } };
     const img = document.getElementById('hero-imagem') as HTMLImageElement | null;
@@ -33,12 +32,17 @@ export function Abertura({ concluir }: { concluir: () => void }) {
     }).then(() => img?.decode().catch(() => {}));
     const tarefas = [document.fonts.load('500 16px Manrope'), document.fonts.load('400 40px Newsreader'), carregarImagem];
     Promise.allSettled(tarefas.map(tarefa => Promise.resolve(tarefa).finally(atualizar))).then(terminou);
-    timer = window.setTimeout(terminou, 8000);
+    timer = window.setTimeout(terminou, 2000);
     return () => { encerrado = true; clearTimeout(timer); limparImagem(); document.body.style.overflow = overflowAnterior; };
   }, [concluir, desativado]);
   if (desativado) return null;
   return <motion.div className="abertura" initial={false} animate={{ y: saindo ? '-100%' : 0 }}
-    transition={{ duration: 0.78, ease: [0.76, 0, 0.24, 1] }} onAnimationComplete={() => { if (saindo) concluir(); }}>
+    transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }} onAnimationComplete={() => { if (saindo) concluir(); }}>
+    <button className="abertura-pular" onClick={() => {
+      try { sessionStorage.setItem('he-visitou', 'sim'); } catch { /* Sessão sem armazenamento. */ }
+      concluir();
+      requestAnimationFrame(() => document.getElementById('conteudo')?.focus({ preventScroll: true }));
+    }}>Pular abertura <span aria-hidden="true">↗</span></button>
     <div className="abertura-centro">
       <div className="abertura-montagem" aria-label={textos.abertura.marca}>
         {[0, 1, 2].map(i => <div className="abertura-recorte" key={i}><motion.div className="abertura-peca"

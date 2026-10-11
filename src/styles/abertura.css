@@ -1,5 +1,7 @@
 .abertura { position: fixed; inset: 0; z-index: 100; background: var(--color-papel); color: var(--color-azul); display: grid; place-items: center; }
 .abertura-centro { text-align: center; }
+.abertura-pular { position: absolute; top: 24px; right: 5%; display: flex; gap: 14px; align-items: center; min-height: 44px; padding: 10px 16px; border: 1px solid var(--color-linha); border-radius: 4px; font-size: 12px; }
+.abertura-pular:hover { background: var(--color-areia); }
 .abertura-montagem { display: flex; width: 210px; height: 210px; margin: 0 auto 30px; }
 .abertura-recorte { width: 33.333333%; height: 100%; overflow: hidden; position: relative; }
 .abertura-peca { width: 300%; height: 100%; position: absolute; top: 0; }
