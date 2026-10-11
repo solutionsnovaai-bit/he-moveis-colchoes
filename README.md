@@ -50,26 +50,28 @@ O hero usa uma composição ilustrativa de móveis e colchão com a marca, em ve
 
 A galeria usa os registros reais presentes nos prints fornecidos. O enquadramento é feito no componente `Imagem`, preservando os arquivos originais convertidos em AVIF e WebP. Para melhorar a definição, substitua por fotografias originais dos produtos. Não há foto de equipe fornecida; `Sobre` fica oculto até configurar `imagens.sobre`.
 
-O breakpoint de `<picture>` e CSS é `767px`. No desktop, a arte mantém sua proporção e reduz a largura quando a janela é muito larga para sua altura. No celular, preserva a imagem vertical inteira, com o texto abaixo da região da marca e dos móveis.
+O breakpoint de `<picture>` e CSS é `767px`. No desktop, a arte ocupa toda a largura, preserva sua proporção original e não depende da altura da janela. Em telas largas o Hero pode ultrapassar uma altura de tela para manter a fotografia e o logotipo inteiros. No celular, a imagem vertical original permanece inteira, com o texto abaixo da região da marca e dos móveis.
 
 Os diretórios `/assets`, `/fonts`, `/hero`, `/marca`, `/fotos` e `/icones` usam cache de um ano e `immutable`. Ao alterar um arquivo nessas pastas, mude obrigatoriamente o nome, por exemplo de `-v2` para `-v3`, e atualize as referências. O Vite gera nomes com hash para JS e CSS. `og.jpg`, HTML e arquivos de descoberta não usam esse cache longo.
 
 ## Movimento e acesso
 
-A abertura aguarda a conclusão das duas fontes e da imagem escolhida pelo `<picture>`. O percentual corresponde aos três recursos concluídos, inclusive quando um recurso falha e o navegador usa a reserva. Há limite de oito segundos para evitar bloqueio; esse limite não falsifica o percentual. A próxima visita na mesma sessão tem duração menor. Movimento reduzido e a preferência salva de pausa desativam a abertura.
+A abertura aguarda as duas fontes e a imagem escolhida pelo `<picture>`, com limite de dois segundos e saída de 550 ms. O percentual corresponde aos recursos concluídos, sem simulação. O botão “Pular abertura” permite entrar imediatamente. Revisitas na mesma sessão, movimento reduzido e a preferência salva de pausa desativam a abertura. Durante a abertura e o menu, o conteúdo de fundo e o botão flutuante não recebem interação ou foco.
 
 O rodapé permite pausar o movimento. A preferência é salva no navegador; a preferência do sistema por movimento reduzido tem prioridade. O carrossel pausa no hover, no foco, durante o arrasto, fora da tela e com a aba oculta. No modo reduzido, usa rolagem horizontal nativa. Setas do teclado e os controles laterais também navegam pelos produtos.
 
 Menu mobile com Escape, foco preso e retorno ao botão de abertura. Link para pular ao conteúdo, foco visível, texto alternativo, botões de controle identificados e WhatsApp fixo. Animações visuais usam somente transform e opacity; a abertura do acordeão muda o conteúdo imediatamente, sem animar altura.
 
-## Verificação desta entrega
+## Verificação do refinamento premium
 
-- `npm install`, `npm run check` e `npm run build`: executados com sucesso.
-- Dependências diretas, links de WhatsApp, mensagem por item, arquivos de imagem, metadados de prévia, fontes e quantidade de arquivos: conferidos.
-- Inspeção visual em 1440×900 e 390×844: pendente por indisponibilidade do navegador de testes.
-- Abertura, arrasto, foco do menu, ausência de overflow de 320 a 2560 px e preferência de movimento: implementados, mas não validados em navegador nesta entrega.
-- Entrega de mensagens, carregamento externo do Google Maps e cache/cabeçalhos na Vercel: não testados em ambiente publicado.
-- Commit local em `main`: incluído no histórico exportável. Push depende de repositório remoto e acesso ao GitHub.
+- Checagem TypeScript e build de produção aprovados.
+- Validação em Chrome nas larguras 320, 390, 767, 768, 900, 1024, 1440, 1920 e 2560 px: Hero ocupa toda a largura, imagens carregam e não há rolagem horizontal da página.
+- Menu mobile: Tab/Shift+Tab, Escape, retorno de foco, navegação para seções e fechamento ao ampliar a janela aprovados.
+- Galeria com movimento reduzido: teclado, rolagem e estado desabilitado do controle final aprovados; acordeão abre e fecha normalmente.
+- Abertura normal, revisita sem abertura e liberação do conteúdo após fechar menu aprovados. Nenhuma exceção JavaScript ou erro HTTP de recursos locais nos cenários testados.
+- Imagens, fontes, dados comerciais, textos, contatos, dependências e configuração de deploy preservados.
+- Neste Windows, o módulo nativo do Rollup foi bloqueado pelo sistema. A validação local usou a distribuição oficial WebAssembly da mesma versão, somente em node_modules, sem alterar package.json ou o lockfile.
+- Core Web Vitals de visitantes reais, entrega de mensagens e Google Maps externo não foram medidos. Domínio definitivo, indexação e dados comerciais pendentes seguem as observações acima.
 
 ## GitHub
 

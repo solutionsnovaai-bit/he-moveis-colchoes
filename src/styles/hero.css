@@ -1,33 +1,54 @@
-.hero { padding-top: 88px; background: #e9e2d7; }
-.hero-stage { position: relative; container-type: inline-size; width: min(100%, calc(max(450px, 100svh - 88px) * 1.7768)); aspect-ratio: 1672 / 941; margin-inline: auto; }
+.hero { padding-top: 88px; background: #e3d8c7; }
+/* The photograph owns the full viewport width, independently of its content. */
+.hero-stage { position: relative; container-type: inline-size; width: 100%; aspect-ratio: 1672 / 941; isolation: isolate; }
 .hero-arte { position: absolute; inset: 0; display: block; }
 .hero-arte img { width: 100%; height: 100%; object-fit: contain; }
-.hero-conteudo { position: absolute; left: 5.2%; top: 50%; transform: translateY(-50%); width: 41%; max-width: 650px; }
-.hero-conteudo .eyebrow { font-size: clamp(8px, .68cqw, 11px); display: flex; gap: 10px; align-items: center; }
-.ponto { width: 6px; height: 6px; background: var(--color-azul); border-radius: 50%; display: inline-block; }
-.titulo-hero { font-family: var(--font-sans); font-size: clamp(2rem, 4.8cqw, 5.8rem); letter-spacing: -.07em; font-weight: 550; line-height: 1.08; }
+.hero-conteudo { position: absolute; left: 5.2%; top: 47%; transform: translateY(-50%); width: 42%; max-width: 1040px; }
+.hero-conteudo .eyebrow { font-size: clamp(9px, .7cqw, 12px); display: flex; gap: 10px; align-items: center; letter-spacing: .19em; }
+.ponto { width: 6px; height: 6px; background: var(--color-azul); border-radius: 50%; display: inline-block; box-shadow: 0 0 0 5px #102f4610; flex-shrink: 0; }
+.titulo-hero { font-family: var(--font-sans); font-size: clamp(2rem, 4.65cqw, 6.7rem); letter-spacing: -.065em; font-weight: 550; line-height: 1.08; }
 .titulo-hero .linha-mascara:last-child { font-family: var(--font-display); font-weight: 400; letter-spacing: -.055em; color: var(--color-azul); font-size: 1.13em; }
-.hero-conteudo .titulo { margin-top: clamp(14px, 2cqw, 30px); }
-.hero-descricao { max-width: 330px; margin-top: clamp(14px, 1.8cqw, 30px); margin-bottom: clamp(20px, 2.6cqw, 40px); font-size: clamp(12px, 1.05cqw, 17px); line-height: 1.8; font-weight: 500; }
-.hero-fatos { display: flex; flex-wrap: wrap; gap: 13px 22px; margin-top: clamp(20px, 2.5cqw, 40px); font-size: clamp(9px, .72cqw, 12px); font-weight: 650; }
+.hero-conteudo .titulo { margin-top: clamp(16px, 2cqw, 34px); }
+.hero-descricao { max-width: 350px; margin-top: clamp(16px, 1.8cqw, 32px); margin-bottom: clamp(22px, 2.5cqw, 42px); font-size: clamp(13px, 1.05cqw, 18px); line-height: 1.85; font-weight: 500; text-wrap: pretty; }
+.hero-fatos { display: flex; flex-wrap: wrap; gap: 13px 22px; margin-top: clamp(22px, 2.5cqw, 40px); padding-top: clamp(14px, 1.3cqw, 22px); border-top: 1px solid #102f462b; width: fit-content; font-size: clamp(10px, .75cqw, 12px); font-weight: 650; }
 .hero-fatos span { display: inline-flex; gap: 8px; align-items: center; }
-.hero-legenda { position: absolute; right: 3%; bottom: 14px; font-size: 8px; color: #fff; padding: 5px 8px; background: #102f46e8; border-radius: 2px; max-width: 45%; line-height: 1.5; }
-.hero-rolar { position: absolute; left: 5.2%; bottom: 26px; display: flex; align-items: center; gap: 10px; font-size: 9px; font-weight: 650; }
-@media (min-width: 768px) and (max-width: 1000px) { .hero-conteudo .botao { padding: 13px 14px; min-height: 48px; font-size: 10px; gap: 8px; } .hero-fatos { gap: 10px; } .hero-rolar { bottom: 13px; } }
+.hero-fatos svg { color: var(--color-azul); }
+.hero-legenda { position: absolute; right: 3%; bottom: 20px; font-size: 9px; color: #fff; padding: 7px 10px; background: #102f46e8; border-radius: 3px; max-width: 45%; line-height: 1.5; }
+.hero-rolar { position: absolute; left: 5.2%; bottom: 22px; display: flex; align-items: center; gap: 12px; min-height: 44px; font-size: 10px; font-weight: 650; }
+.hero-rolar svg { width: 32px; height: 32px; padding: 7px; border: 1px solid #102f4652; border-radius: 50%; transition: transform .25s ease, background .25s ease; }
+.hero-rolar:hover svg { transform: translateY(3px); background: #f3f0e966; }
+@media (min-width: 768px) and (max-width: 1100px) {
+  .hero-conteudo { top: 46%; }
+  .hero-conteudo .botao { padding: 12px 14px; min-height: 48px; font-size: 11px; gap: 8px; }
+  .hero-descricao { margin-block: 14px 20px; max-width: 290px; }
+  .hero-fatos { gap: 9px 12px; margin-top: 16px; padding-top: 12px; font-size: 9px; }
+  .hero-fatos svg { width: 16px; height: 16px; }
+  .hero-rolar { bottom: 8px; }
+  .hero-legenda { bottom: 14px; font-size: 8px; }
+}
 @media (max-width: 767px) {
-  .hero { padding-top: 72px; background: #e3d8c7; }
-  .hero-stage { width: 100%; aspect-ratio: auto; container-type: normal; }
+  .hero { padding-top: 72px; }
+  .hero-stage { aspect-ratio: auto; container-type: normal; }
   .hero-arte { inset: 0 0 auto; width: 100%; height: auto; }
+  .hero-arte::after { content: ''; position: absolute; inset: 80% 0 0; background: linear-gradient(transparent, #e3d8c7); pointer-events: none; }
   .hero-arte img { width: 100%; height: auto; aspect-ratio: 941 / 1672; }
-  .hero-conteudo { position: relative; left: auto; top: auto; transform: none; width: 100%; max-width: none; padding: calc(100vw * 1.19) 24px 50px; }
-  .hero-conteudo .eyebrow { font-size: 8px; }
-  .titulo-hero { font-size: clamp(1.95rem, 8.4vw, 3.8rem); line-height: 1.1; }
-  .hero-conteudo .titulo { margin-top: 16px; }
-  .hero-descricao { font-size: 12px; line-height: 1.7; max-width: 300px; margin: 17px 0 23px; }
-  .hero-conteudo .botao { min-height: 50px; font-size: 11px; }
-  .hero-fatos { font-size: 8px; margin-top: 20px; gap: 10px 15px; }
-  .hero-fatos svg { width: 15px; height: 15px; }
-  .hero-legenda { font-size: 7px; left: 24px; right: auto; bottom: 14px; max-width: calc(100% - 104px); padding: 0; color: var(--color-azul); background: transparent; }
+  .hero-conteudo { position: relative; left: auto; top: auto; transform: none; width: 100%; max-width: none; padding: calc(100vw * 1.16) 24px 76px; }
+  .hero-conteudo .eyebrow { font-size: 9px; }
+  .titulo-hero { font-size: clamp(2.15rem, 8.4vw, 4rem); line-height: 1.1; }
+  .hero-conteudo .titulo { margin-top: 20px; }
+  .hero-descricao { font-size: 14px; line-height: 1.75; max-width: 340px; margin: 20px 0 26px; }
+  .hero-conteudo .botao { min-height: 54px; font-size: 12px; }
+  .hero-fatos { font-size: 10px; margin-top: 24px; padding-top: 18px; gap: 10px 16px; }
+  .hero-fatos svg { width: 16px; height: 16px; }
+  .hero-legenda { font-size: 9px; left: 24px; right: auto; bottom: 24px; max-width: calc(100% - 100px); padding: 0; color: var(--color-azul); background: transparent; }
   .hero-rolar { display: none; }
 }
-@media (min-width: 500px) and (max-width: 767px) { .hero-conteudo { padding-left: 7%; padding-right: 7%; } .hero-descricao { font-size: 15px; max-width: 430px; } .hero-conteudo .botao { font-size: 13px; } .hero-fatos { font-size: 11px; } }
+@media (min-width: 500px) and (max-width: 767px) {
+  .hero-conteudo { padding-inline: 7%; }
+  .hero-descricao { font-size: 16px; max-width: 430px; }
+  .hero-conteudo .botao { font-size: 13px; }
+  .hero-fatos { font-size: 12px; }
+  .hero-legenda { left: 7%; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-rolar:hover svg { transform: none; } }
+html[data-movimento='pausado'] .hero-rolar:hover svg { transform: none; }
